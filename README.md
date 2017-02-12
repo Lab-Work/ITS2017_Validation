@@ -1,5 +1,6 @@
-# ValidationCone [Outdated]
+# ValidationCone
 
+[The README below is outdated. Will be updated soon.]
 The data was collected on Springfield Avenue on August 31st, 2016, and it includes:
 - Rapberry Pi video
 - Laser range finder data
