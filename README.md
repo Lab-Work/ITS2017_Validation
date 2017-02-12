@@ -1,4 +1,4 @@
-# ValidationCone
+# ValidationCone [Outdated]
 
 The data was collected on Springfield Avenue on August 31st, 2016, and it includes:
 - Rapberry Pi video
