@@ -45,12 +45,12 @@ class ValidationCone:
             # Apply binary threshold to eliminate background.
             # This works because the pavement is always in light color and 
             # vehicle tires always in dark color.
-            ret, black = cv2.threshold(gray,64,255,cv2.THRESH_BINARY_INV)
+            ret, black = cv2.threshold(gray,32,255,cv2.THRESH_BINARY_INV)
             trace.append(np.sum(black, axis=0))
             elev.append(np.sum(black, axis=1))
             black = cv2.cvtColor(black, cv2.COLOR_GRAY2BGR)
-            cv2.imshow("Threshold", black) # Visualize the thresholding effect
-            cv2.waitKey(1)
+            cv2.imshow("Threshold", np.vstack((frame[self.im_coor[1]:self.im_coor[0],10:-10], black))) # Visualize the thresholding effect
+            cv2.waitKey(50)
             k = cv2.waitKey(1) & 0xff
             if k == 27:
                 break
@@ -85,12 +85,12 @@ class ValidationCone:
         # Threshold value to find vehicle traces.
         thresh = 750
         trace = np.load(self.SRC+self.VID.replace(".avi", "_trace.npy"))
-        trace = trace[1000:]
+        trace = trace[1000:-1000]
         mask = trace > thresh
         # Find the horizontal image coordinates of the foreground pixels.
         trace_pixels = np.column_stack(np.where(mask))
         elev = np.load(self.SRC+self.VID.replace(".avi", "_elev.npy"))
-        elev = elev[1000:]
+        elev = elev[1000:-1000]
         mask = elev > thresh
         # Find the vertical image coordinates of the foreground pixels.
         elev_pixels = np.column_stack(np.where(mask))
@@ -249,7 +249,7 @@ class ValidationCone:
         
         # Sacle the visualization video for better viewing quality.
         scale = 2
-        cap = cv2.VideoCapture(self.SRC+self.VID.replace(".avi", "avi.mp4"))
+        cap = cv2.VideoCapture(self.SRC+self.VID)#.replace(".avi", "avi.mp4"))
         fourcc = cv2.VideoWriter_fourcc(*'XVID')
         out = cv2.VideoWriter(self.SRC+'demo.avi',fourcc, self.fps,
                               (self.dim[1]*scale,self.dim[0]*scale))
@@ -310,11 +310,11 @@ if __name__ == "__main__":
     # Usage:
     #   ValidationCone(data directory, video path, fps, pixel coordinates, 
     #                  physical coordinates, fov, distance from camera to outer lane)
-    vc = ValidationCone("test3/", "freeflow_1.avi", 60.0, 
-                        [395, 335, 315], [0.00, 3.70, 7.25], 0.4331, 5.18)
+    vc = ValidationCone("test3/", "freeflow_2.avi", 60.0, 
+                        [368, 304, 284], [0.00, 3.55, 7.25], 0.4331, 6.62)
     # Find the heat map/heat trace of the video.
-    #vc.find_trace()
+    vc.find_trace()
     # Estimate vehicle counts, distance, and speeds using DBSCAN and convex hull.
     #vc.analyze_trace_convex()
     # Visualize the estimation results in form of histogram and video overlay.
-    vc.inspect_dynamics("convex")
+    #vc.inspect_dynamics("convex")
