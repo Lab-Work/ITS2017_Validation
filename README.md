@@ -1,4 +1,4 @@
-# ValidationCone
+# Traffic Estimation through a Side-View Camera
 
 This is the official repository containing the script and a sample video data for vehicle detection and speed estimation in a side-view traffic camera. The script is written in Python and has dependency on Scipy, OpenCV, and scikit-learn. The data was collected on Neil Street on May 30th, 2017 in Urbana, IL, where a total of 55 vehicles were recorded in the video.
 
