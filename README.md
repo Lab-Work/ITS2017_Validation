@@ -1,16 +1,28 @@
 # ValidationCone
 
-[The README below is outdated. Will be updated soon.]
+This is the official repository containing the script and a sample video data for vehicle detection and speed estimation in a side-view traffic camera. The script is written in Python and has dependency on Scipy, OpenCV, and scikit-learn. The data was collected on Neil Street on May 30th, 2017 in Urbana, IL, where a total of 55 vehicles were recorded in the video.
 
-The data was collected on Springfield Avenue on August 31st, 2016, and it includes:
-- Rapberry Pi video
-- Laser range finder data
-- Manual speed labels 
+## Installation 
+First install the following python depencies:
+```
+pip install numpy, matplotlib, scipy, scikit-learn
+```
+Next, install or compile OpenCV Python binding on your system. For Ubuntu 16.04 users, you may follow the instuction [here](http://www.pyimagesearch.com/2016/10/24/ubuntu-16-04-how-to-install-opencv/).
 
-The first car passed at 10:17:56 on Aug 31st, 2016 is a black(brown) saturn SUV. There are in total 79 detections. The 50th and 63rd vehicles are motorcycles. The 68th speed is not clear.
+## Data
+More video data can be downloaded [here](https://uofi.box.com/s/i3ac71aejupj1khbo7w61az9qe6u5tz2).
 
-The video preprocessing script is `process_video.sh`. The vision algorithm is packed inside Python script `ValidationCone.py`.
+## Usage
+To process the sample video data, 
+```
+python run.py
+```
 
-The processed dynamic information is stored as an array in `wheel_dynamics.npy`. The array is three dimensional and can be accessed as `wheel_dynamics[wheel_ID, time, features]`. `wheel_ID` is assigned in the order of time, i.e., the nth passing vehicle has an ID of (n-1). `time` contains 640 instances, corresponding to the 640 horizontal locations that the cener of wheel will take in the 640 by 480 Pi video. Within each instance, the `features` are timestamp (0), horizontal pixel location (1), vertical pixel location (2), and the radius of the wheel in pixel unit (3).
+To customize the script to a different side-view traffic footage, one needs to measure the following items:
++ Frame per second
++ Horizontal field of view (rad)
++ Camera rotation in the plane perpendicular to the lens center axis (rad)
++ Pixel distances of three horizontal lines in the frame with respect to the image origin (pixel)
++ Physical distances of these three horizontal line with respect to the camera position (m)
 
-The fourth vehicle (7th and 8th wheels) in the wheel_dynamics.npy matches the first vehicle in the log file.
+For further inquiry, please contact the author Fangyu Wu fwu10(at)illinois.edu.
