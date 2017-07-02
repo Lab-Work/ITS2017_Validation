@@ -26,8 +26,6 @@ To customize the script to a different side-view traffic footage, one needs to m
 More video data can be downloaded [here](https://uofi.box.com/s/i3ac71aejupj1khbo7w61az9qe6u5tz2). The linked Box folder contains scripts to process each individual video footage.
 
 ## Contact
-Author: Fangyu Wu, Coordinated Science Laboratory, UIUC
-
-Email: fwu10(at)illinois.edu
-
-Web: fangyuwu.com
++ Author: Fangyu Wu, Coordinated Science Laboratory, UIUC
++ Email: fwu10(at)illinois.edu
++ Web: fangyuwu.com
