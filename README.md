@@ -12,7 +12,7 @@ Next, install or compile OpenCV Python binding on your system. For Ubuntu 16.04 
 ## Usage
 To process the sample video data, 
 ```
-python run.py
+>> python run.py
 ```
 
 To customize the script to a different side-view traffic footage, one needs to measure the following items:
