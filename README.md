@@ -9,9 +9,6 @@ pip install numpy, matplotlib, scipy, scikit-learn
 ```
 Next, install or compile OpenCV Python binding on your system. For Ubuntu 16.04 users, you may follow the instuction [here](http://www.pyimagesearch.com/2016/10/24/ubuntu-16-04-how-to-install-opencv/).
 
-## Data
-More video data can be downloaded [here](https://uofi.box.com/s/i3ac71aejupj1khbo7w61az9qe6u5tz2). The linked Box folder contains scripts to process each individual video footage.
-
 ## Usage
 To process the sample video data, 
 ```
@@ -25,4 +22,10 @@ To customize the script to a different side-view traffic footage, one needs to m
 + Pixel distances of three horizontal lines in the frame with respect to the image origin (pixel)
 + Physical distances of these three horizontal line with respect to the camera position (m)
 
-For inquiry, please contact the author Fangyu Wu fwu10(at)illinois.edu.
+## Extended Dataset
+More video data can be downloaded [here](https://uofi.box.com/s/i3ac71aejupj1khbo7w61az9qe6u5tz2). The linked Box folder contains scripts to process each individual video footage.
+
+## Contact
+Author: Fangyu Wu, Coordinated Science Laboratory, UIUC
+Email: fwu10(at)illinois.edu
+Web: fangyuwu.com
