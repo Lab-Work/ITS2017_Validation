@@ -27,5 +27,7 @@ More video data can be downloaded [here](https://uofi.box.com/s/i3ac71aejupj1khb
 
 ## Contact
 Author: Fangyu Wu, Coordinated Science Laboratory, UIUC
+
 Email: fwu10(at)illinois.edu
+
 Web: fangyuwu.com
